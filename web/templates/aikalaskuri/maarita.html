@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Aikalaskuri - Kaikki kisat</title>
+		<link rel="stylesheet" type="text/css" href="/kipamedia/kipa.css" />
+		<link rel="stylesheet" type="text/css" href="/kipamedia/tabcontent.css" />
+		<link rel="icon" type="image/x-icon" href="/kipamedia/favicon.ico" />
+		<script type="text/javascript" language="javascript" src="/kipamedia/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" language="javascript" src="/kipamedia/aika.js"></script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="main" class="clearfix">
+				<div id="container">
+					<blockquote>
+						{% if tehtavat %}
+							<form action="" method="POST">
+								<table>
+									{% for osatehtava in tehtavat %}
+										<tr>
+											<table>
+											{% for vihje in osatehtava.nimi %}
+												<tr>
+													<th><label for="{{vihje.id}}">{{vihje.kali_vihje}}</label></th>
+													<td><input id="a{{vihje.id}}" name="{{vihje.id}}" class="aika" placeholder="aloitusaika hh:mm:ss"></td>
+													<td><input id="l{{vihje.id}}" name="{{vihje.id}}" class="aika" placeholder="nollasuoritus hh:mm:ss"></td>
+												</tr>
+											{% endfor %}
+											</table>
+										</tr>
+									{% endfor %}
+								</table>
+								<input type="submit" value="OK">
+							</form>
+						{% else %}
+							<p>Ei määriteltyjä osatehtäviä.</p>
+						{% endif %}
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

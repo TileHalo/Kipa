@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Aikalaskuri - Kaikki kisat</title>
+		<link rel="stylesheet" type="text/css" href="/kipamedia/kipa.css" />
+		<link rel="stylesheet" type="text/css" href="/kipamedia/tabcontent.css" />
+		<link rel="icon" type="image/x-icon" href="/kipamedia/favicon.ico" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="main" class="clearfix">
+				<div id="container">
+					<blockquote>
+						{% if tehtavat %}
+							<table>
+								{% for tehtava in tehtavat %}
+									<tr>
+										<th>{{tehtava.nimi}}</th>
+										<td><a href="maarita/{{ tehtava.id }}">Määritä</a></td>
+										<td><a href="syota/{{ tehtava.id }}">Syötä</a></td>
+									</tr>
+								{% endfor %}
+							</table>
+						{% else %}
+							<p>Ei määriteltyjä kisoja.</p>
+						{% endif %}
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

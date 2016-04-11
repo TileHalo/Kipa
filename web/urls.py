@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
         (r'^kipa/',  include('tupa.urls')),
+        (r'^aika/',  include('aikalaskuri.urls')),
         (r'^admin/', include(admin.site.urls)),
 )
 
